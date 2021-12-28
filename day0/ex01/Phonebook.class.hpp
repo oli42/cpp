@@ -5,7 +5,7 @@
 #include <iostream>
 #include <string>
 
-
+ 
 class Phonebook 
 {
     public:
@@ -13,9 +13,10 @@ class Phonebook
             ~Phonebook();
 
             void addContact(void);
-            void searchContact(void) const;
-            static int get_nbr_contacts();
-            static int nbr_contacts;
+            void searchContact(void);
+            void get_index(void);
+            static int get_nbr();
+            static int nbr;
 
     private:
             Contact _tab[8];
