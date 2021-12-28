@@ -47,7 +47,7 @@ void Phonebook::searchContact(void)
             else 
                 std::cout << std::setw(10) << this->_tab[i].get_last_name() << "|"; 
             if (this->_tab[i].get_nickname().length() >= 10)
-                std::cout << this->_tab[i].get_last_name().substr(0, 9) << "." << "|";    
+                std::cout << this->_tab[i].get_last_name().substr(0, 9) << "." << "|" << std::endl;    
             else
                 std::cout << std::setw(10) << this->_tab[i].get_nickname() << "|"  << std::endl;
             i++;    
@@ -78,26 +78,11 @@ void Phonebook::get_index(void)
     i = stoi(str);
     if (i <= nbr && i >= 0)
     {
-        if (this->_tab[i].get_first_name().length() >= 10)
-            std::cout << this->_tab[i].get_first_name().substr(0, 9) << "." << "|";
-        else
-            std::cout <<  "|" << std::setw(10) << this->_tab[i].get_first_name() << "|"; 
-        if (this->_tab[i].get_last_name().length() >= 10)
-            std::cout << this->_tab[i].get_last_name().substr(0, 9) << "." << "|";
-        else 
-            std::cout << std::setw(10) << this->_tab[i].get_last_name() << "|";
-        if (this->_tab[i].get_nickname().length() >= 10)
-            std::cout << this->_tab[i].get_last_name().substr(0, 9) << "." << "|";    
-        else
-            std::cout << std::setw(10) << this->_tab[i].get_nickname() << "|";
-        if (this->_tab[i].get_phone_nbr().length() >= 10)
-            std::cout << this->_tab[i].get_phone_nbr().substr(0, 9) << "." << "|";
-        else
-            std::cout << std::setw(10) << this->_tab[i].get_phone_nbr() << "|"; 
-        if (this->_tab[i].get_darkest_secret().length() >= 10)
-            std::cout << this->_tab[i].get_darkest_secret().substr(0, 9) << "." << "|";
-        else
-            std::cout << std::setw(10) << this->_tab[i].get_darkest_secret()<< "|" << std::endl;
+        std::cout << this->_tab[i].get_first_name() << std::endl;
+        std::cout << this->_tab[i].get_last_name() << std::endl;
+        std::cout << this->_tab[i].get_nickname() << std::endl;
+        std::cout << this->_tab[i].get_phone_nbr() << std::endl;
+        std::cout << this->_tab[i].get_darkest_secret()<< std::endl;
         print_option();
     }
     else
@@ -105,7 +90,6 @@ void Phonebook::get_index(void)
         std::cout << "This index has no value." << std::endl;
         print_option();
     }   
-    // std::cin.ignore();
 }
 
 void Phonebook::print_option(void) const
