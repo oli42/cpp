@@ -12,6 +12,8 @@ public:
         ~Contact();
         
         void add_info();
+        int check_phone_nbr(std::string);
+        std::string full(void);
 
         void set_first_name(std::string family_name);
         void set_last_name(std::string last_name);

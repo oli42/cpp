@@ -3,6 +3,7 @@
 
 #include "Contact.class.hpp"
 #include <iostream>
+#include <iomanip>
 #include <string>
 
  
@@ -15,6 +16,9 @@ class Phonebook
             void addContact(void);
             void searchContact(void);
             void get_index(void);
+            int check_index(std::string str);
+            std::string idiot(void);
+            void print_option(void) const;
             static int get_nbr();
             static int nbr;
 
