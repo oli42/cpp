@@ -40,7 +40,7 @@ void Karen::info(void)
 {
     std::cout << "I cannot believe adding extra bacon cost more money. You don’t put enough! If you did I would not have to ask for it!" << std::endl;
     std::cout << "" << std::endl;
-    }
+}
 
 void Karen::warning(void)
 {
