@@ -49,7 +49,6 @@ void replace( std::string filename, std::string s1, std::string s2 )
 
 int main(int argc, char **argv)
 {
-	std::string line;
 	std::string filename;
 	std::string s1;
 	std::string s2;
