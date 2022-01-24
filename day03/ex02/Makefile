@@ -1,6 +1,6 @@
 NAME = aaaaand
 
-SRC = ClapTrap.cpp  main.cpp  ScavTrap.cpp
+SRC = ClapTrap.cpp  main.cpp  ScavTrap.cpp FragTrap.cpp
 
 %.o: %.cpp
 		@$(CC) -c $(FLAGS) -o $@ $<

@@ -6,7 +6,7 @@
 /*   By: ochichep <ochichep@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 11:25:08 by ochichep          #+#    #+#             */
-/*   Updated: 2022/01/24 16:31:10 by ochichep         ###   ########.fr       */
+/*   Updated: 2022/01/24 16:33:12 by ochichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ ScavTrap::ScavTrap()
     this->_gatekeeperMode = 0;
     std::cout << "ScavTrap Default constructor called for " << this->getName() << std::endl;
 
-
 }
 
 ScavTrap::ScavTrap(std::string const & name)
@@ -32,6 +31,7 @@ ScavTrap::ScavTrap(std::string const & name)
     this->setAttackDamage(20);
     this->_gatekeeperMode = 0;
     std::cout << "ScavTrap Parametrized constructor called for " << this->getName() << std::endl;
+    
 }
 
 

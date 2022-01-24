@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ochichep <ochichep@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/23 11:24:56 by ochichep          #+#    #+#             */
-/*   Updated: 2022/01/24 16:03:24 by ochichep         ###   ########.fr       */
+/*   Created: 2022/01/23 20:56:02 by ochichep          #+#    #+#             */
+/*   Updated: 2022/01/24 16:42:18 by ochichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef DIAMONDTRAP_HPP
+# define DIAMONDTRAP_HPP
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 
-class ScavTrap : public ClapTrap
+class DiamondTrap :  public ScavTrap, public FragTrap
 {
     private:
-        bool _gatekeeperMode;
-        
+        std::string _name;
+    
     public:
-        ScavTrap();
-        ScavTrap(std::string const & name);
-		ScavTrap(const ScavTrap & one);
-        ~ScavTrap();
+        DiamondTrap();
+        DiamondTrap(std::string const & name);
+		DiamondTrap(const DiamondTrap & one);
+        ~DiamondTrap();
         
-		ScavTrap & operator=(const ScavTrap & one);
-
+		DiamondTrap & operator=(const DiamondTrap & one);
 
         void attack(const std::string & target);
-        void guardGate();
-        bool getGateKeeperMode(void) const ;
-    
+        void whoAmI() const;
+
+        std::string getName(void) const;
 };
 
 #endif

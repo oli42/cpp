@@ -6,7 +6,7 @@
 /*   By: ochichep <ochichep@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 11:25:28 by ochichep          #+#    #+#             */
-/*   Updated: 2022/01/23 11:25:29 by ochichep         ###   ########.fr       */
+/*   Updated: 2022/01/24 17:00:21 by ochichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 ClapTrap::ClapTrap() : _name("no_name"), _hit_points(10), _energie_points(10), _attack_damage(0)
 {
-    std::cout << "Default constructor called" << std::endl;
+    std::cout << "ClapTrap Default constructor called for "  << this->getName() << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string const & name) : _name (name), _hit_points(10), _energie_points(10), _attack_damage(0)
 {
-    std::cout << "Parametrized constructor called" << std::endl;
+    std::cout << "ClapTrap Parametrized constructor called for "  << this->getName()<< std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap & one)
 {
-    std::cout << "Copy constructor called" << std::endl;
     this->operator=(one);    
+    std::cout << "ClapTrap Copy constructor called for " << this->getName() << std::endl;
 }
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << "Destructor called" << std::endl;
+    std::cout << "ClapTrap Destructor called for " << this->getName() << std::endl;
 }
 
 ClapTrap & ClapTrap::operator=(const ClapTrap & one)
@@ -43,10 +43,6 @@ ClapTrap & ClapTrap::operator=(const ClapTrap & one)
    return (*this);
 }
 
-std::ostream & operator<<(std::ostream & os, const ClapTrap & one)
-{
-    return (os << one);
-}
 //------------------------------------------------------------------------------
 
 void ClapTrap::attack(const std::string & target)

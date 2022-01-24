@@ -6,7 +6,7 @@
 /*   By: ochichep <ochichep@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 11:24:56 by ochichep          #+#    #+#             */
-/*   Updated: 2022/01/24 16:03:24 by ochichep         ###   ########.fr       */
+/*   Updated: 2022/01/24 16:40:30 by ochichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "ClapTrap.hpp"
 
 
-class ScavTrap : public ClapTrap
+class ScavTrap : virtual public ClapTrap
 {
     private:
         bool _gatekeeperMode;
@@ -33,6 +33,7 @@ class ScavTrap : public ClapTrap
         void attack(const std::string & target);
         void guardGate();
         bool getGateKeeperMode(void) const ;
+
     
 };
 

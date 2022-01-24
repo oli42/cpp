@@ -5,19 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ochichep <ochichep@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/23 11:26:02 by ochichep          #+#    #+#             */
-/*   Updated: 2022/01/24 17:01:46 by ochichep         ###   ########.fr       */
+/*   Created: 2022/01/23 11:25:28 by ochichep          #+#    #+#             */
+/*   Updated: 2022/01/24 16:53:20 by ochichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() : _name("no-name"), _hit_points(10), _energie_points(10), _attack_damage(0)
+ClapTrap::ClapTrap() : _name("no_name"), _hit_points(10), _energie_points(10), _attack_damage(0)
 {
     std::cout << "ClapTrap Default constructor called for " << this->getName() << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string const & name) : _name(name), _hit_points(10), _energie_points(10), _attack_damage(0)
+ClapTrap::ClapTrap(std::string const & name) : _name (name), _hit_points(10), _energie_points(10), _attack_damage(0)
 {
     std::cout << "ClapTrap Parametrized constructor called for " << this->getName() << std::endl;
 }
@@ -33,8 +33,6 @@ ClapTrap::~ClapTrap()
     std::cout << "ClapTrap Destructor called for " << this->getName() << std::endl;
 }
 
-//------------------------------------------------------------------------------
-
 ClapTrap & ClapTrap::operator=(const ClapTrap & one)
 {
    std::cout << "Assignation operator called" << std::endl;
@@ -45,14 +43,14 @@ ClapTrap & ClapTrap::operator=(const ClapTrap & one)
    return (*this);
 }
 
+
 //------------------------------------------------------------------------------
 
 void ClapTrap::attack(const std::string & target)
 {
     if (this->_energie_points > 0)
     {
-        std::cout << "ClapTrap " << this->_name << " attacks " << target << " causing " 
-        << this->getAttackDamage() << " points of damage!" << std::endl;
+        std::cout << "ClapTrap " << this->_name << " attacks " << target << " causing " << this->getAttackDamage() << " points of damage!" << std::endl;
         this->_energie_points -= 1;
     }
     else

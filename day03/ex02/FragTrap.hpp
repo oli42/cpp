@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ochichep <ochichep@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/23 11:24:56 by ochichep          #+#    #+#             */
-/*   Updated: 2022/01/24 16:03:24 by ochichep         ###   ########.fr       */
+/*   Created: 2022/01/23 20:49:51 by ochichep          #+#    #+#             */
+/*   Updated: 2022/01/24 16:05:20 by ochichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
 #include "ClapTrap.hpp"
 
 
-class ScavTrap : public ClapTrap
+class FragTrap : public ClapTrap
 {
-    private:
-        bool _gatekeeperMode;
-        
     public:
-        ScavTrap();
-        ScavTrap(std::string const & name);
-		ScavTrap(const ScavTrap & one);
-        ~ScavTrap();
+        FragTrap();
+        FragTrap(std::string const & name);
+		FragTrap(const FragTrap & one);
+        ~FragTrap();
         
-		ScavTrap & operator=(const ScavTrap & one);
+		FragTrap & operator=(const FragTrap & one);
 
-
-        void attack(const std::string & target);
-        void guardGate();
-        bool getGateKeeperMode(void) const ;
+        void highFivesGuys(void);
     
 };
 
