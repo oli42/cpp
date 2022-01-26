@@ -6,7 +6,7 @@
 /*   By: ochichep <ochichep@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 11:25:55 by ochichep          #+#    #+#             */
-/*   Updated: 2022/01/24 09:19:07 by ochichep         ###   ########.fr       */
+/*   Updated: 2022/01/25 19:40:30 by ochichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,5 @@ class ClapTrap
 
 };
 
-std::ostream & operator<<(std::ostream & os, const ClapTrap & one);
 
 #endif
