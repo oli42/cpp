@@ -6,7 +6,7 @@
 /*   By: ochichep <ochichep@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 20:35:38 by ochichep          #+#    #+#             */
-/*   Updated: 2022/01/27 08:46:56 by ochichep         ###   ########.fr       */
+/*   Updated: 2022/01/27 09:20:13 by ochichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Cat::Cat(std::string const & type) : _type (type), _own_brain (new Brain())
     std::cout << "Cat Parametrized constructor called for " << this->getType() << std::endl;
 }
 
-Cat::Cat(const Cat & one) : Animal ("Cat")
+Cat::Cat(const Cat & one) : AAnimal ("Cat")
 {
     this->operator=(one); 
     this->_own_brain = new Brain();   

@@ -6,7 +6,7 @@
 /*   By: ochichep <ochichep@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 20:36:02 by ochichep          #+#    #+#             */
-/*   Updated: 2022/01/27 08:49:19 by ochichep         ###   ########.fr       */
+/*   Updated: 2022/01/27 09:20:03 by ochichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,15 @@
 Dog::Dog() : _own_brain (new Brain())
 {
     this->setType("Dog");
-    // this->_own_brain = new Brain();
     std::cout << "  Dog Default constructor called for " << this->getType() << std::endl;
 }
 
 Dog::Dog(std::string const & type) : _type(type), _own_brain (new Brain())
 {
-    // this->_own_brain = new Brain();
     std::cout << "Dog Parametrized constructor called for " << this->getType() << std::endl;
 }
 
-Dog::Dog(const Dog & one) : Animal ("Dog")
+Dog::Dog(const Dog & one) : AAnimal ("Dog")
 {
     this->operator=(one); 
     std::cout << "Dog Copy constructor called for " << this->getType() << std::endl;

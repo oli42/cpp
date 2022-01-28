@@ -1,47 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   AAnimal.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ochichep <ochichep@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/25 20:35:02 by ochichep          #+#    #+#             */
-/*   Updated: 2022/01/27 09:01:37 by ochichep         ###   ########.fr       */
+/*   Created: 2022/01/27 09:16:01 by ochichep          #+#    #+#             */
+/*   Updated: 2022/01/27 09:30:29 by ochichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 
-Animal::Animal()
+AAnimal::AAnimal()
 {
     this->setType("CatDog");
-    std::cout << "Animal Default constructor called for " << this->getType() << std::endl;
+    std::cout << "AAnimal Default constructor called for " << this->getType() << std::endl;
 }
 
-Animal::Animal(std::string const & type) : _type(type)
+AAnimal::AAnimal(std::string const & type) : _type(type)
 {
-    std::cout << "Animal Parametrized constructor called for " << this->getType() << std::endl;
+    std::cout << "AAnimal Parametrized constructor called for " << this->getType() << std::endl;
 }
 
-Animal::Animal(const Animal & one)
+AAnimal::AAnimal(const AAnimal & one)
 {
     this->operator=(one);    
-    std::cout << "Animal Copy constructor called for " << this->getType() << std::endl;
+    std::cout << "AAnimal Copy constructor called for " << this->getType() << std::endl;
 }
 
-Animal::~Animal()
+AAnimal::~AAnimal()
 {
-    std::cout << "Animal Destructor called for " << this->getType() << std::endl;
+    std::cout << "AAnimal Destructor called for " << this->getType() << std::endl;
 }
 
 //------------------------------------------------------------------------------
 
-void Animal::makeSound() const
+void AAnimal::makeSound() const
 {
     std::cout << "(....)\n" << std::endl;
 }
 
-Animal & Animal::operator=(const Animal & one)
+AAnimal & AAnimal::operator=(const AAnimal & one)
 {
    std::cout << "Assignation operator called" << std::endl;
    this->_type = one.getType();
@@ -52,10 +52,7 @@ Animal & Animal::operator=(const Animal & one)
 //------------------------------------------------------------------------------
 
 
-
-//------------------------------------------------------------------------------
-
-std::string Animal::getType(void) const
+std::string AAnimal::getType(void) const
 {
     return (this->_type);
 }
@@ -63,7 +60,7 @@ std::string Animal::getType(void) const
 
 //------------------------------------------------------------------------------
 
-void Animal::setType(std::string type)
+void AAnimal::setType(std::string type)
 {
     this->_type = type;
 }

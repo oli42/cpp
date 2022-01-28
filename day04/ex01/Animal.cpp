@@ -6,7 +6,7 @@
 /*   By: ochichep <ochichep@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 20:35:02 by ochichep          #+#    #+#             */
-/*   Updated: 2022/01/25 20:35:09 by ochichep         ###   ########.fr       */
+/*   Updated: 2022/01/27 09:02:25 by ochichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ Animal::~Animal()
 
 void Animal::makeSound() const
 {
-    std::cout << "pssssssi....\n" << std::endl;
+    std::cout << "(....)\n" << std::endl;
 }
 
 Animal & Animal::operator=(const Animal & one)

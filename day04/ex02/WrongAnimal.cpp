@@ -1,47 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ochichep <ochichep@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/25 20:35:02 by ochichep          #+#    #+#             */
-/*   Updated: 2022/01/27 09:01:37 by ochichep         ###   ########.fr       */
+/*   Created: 2022/01/25 20:36:42 by ochichep          #+#    #+#             */
+/*   Updated: 2022/01/25 20:36:48 by ochichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-Animal::Animal()
+WrongAnimal::WrongAnimal()
 {
-    this->setType("CatDog");
+    this->setType("WrongCatDog");
     std::cout << "Animal Default constructor called for " << this->getType() << std::endl;
 }
 
-Animal::Animal(std::string const & type) : _type(type)
+WrongAnimal::WrongAnimal(std::string const & type) : _type(type)
 {
     std::cout << "Animal Parametrized constructor called for " << this->getType() << std::endl;
 }
 
-Animal::Animal(const Animal & one)
+WrongAnimal::WrongAnimal(const WrongAnimal & one)
 {
     this->operator=(one);    
     std::cout << "Animal Copy constructor called for " << this->getType() << std::endl;
 }
 
-Animal::~Animal()
+WrongAnimal::~WrongAnimal()
 {
     std::cout << "Animal Destructor called for " << this->getType() << std::endl;
 }
 
 //------------------------------------------------------------------------------
 
-void Animal::makeSound() const
+void WrongAnimal::makeSound() const
 {
-    std::cout << "(....)\n" << std::endl;
+    std::cout << "pssssssi...." << std::endl;
 }
 
-Animal & Animal::operator=(const Animal & one)
+WrongAnimal & WrongAnimal::operator=(const WrongAnimal & one)
 {
    std::cout << "Assignation operator called" << std::endl;
    this->_type = one.getType();
@@ -49,13 +49,10 @@ Animal & Animal::operator=(const Animal & one)
    return (*this);
 }
 
-//------------------------------------------------------------------------------
-
-
 
 //------------------------------------------------------------------------------
 
-std::string Animal::getType(void) const
+std::string WrongAnimal::getType(void) const
 {
     return (this->_type);
 }
@@ -63,7 +60,7 @@ std::string Animal::getType(void) const
 
 //------------------------------------------------------------------------------
 
-void Animal::setType(std::string type)
+void WrongAnimal::setType(std::string type)
 {
     this->_type = type;
 }

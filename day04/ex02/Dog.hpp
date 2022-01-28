@@ -1,32 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ochichep <ochichep@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/27 08:53:33 by ochichep          #+#    #+#             */
-/*   Updated: 2022/01/27 08:53:34 by ochichep         ###   ########.fr       */
+/*   Created: 2022/01/25 20:36:14 by ochichep          #+#    #+#             */
+/*   Updated: 2022/01/27 09:54:20 by ochichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 #include <iostream>
 #include <string>
+#include "AAnimal.hpp"
+#include "Brain.hpp"
 
-class Brain
+class Dog : public AAnimal
 {
-    private:
-        std::string ideas[100];
+	protected:
+		std::string _type;
+		
+	private:
+		Brain* _own_brain;
 
-    public:
-        Brain();
-        Brain(const Brain & one);
-        ~Brain();
+	public:
+		Dog();
+		Dog(std::string const & type);
+		Dog(const Dog & one);
+		virtual ~Dog();
 
-    Brain & operator=(const Brain & one);
+		virtual void makeSound() const;
+		Dog & operator=(const Dog & one);
+
+		std::string		getType(void) const ;
+
+		void    setType(std::string type);
 
 };
+
 
 #endif

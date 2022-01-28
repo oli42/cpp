@@ -6,7 +6,7 @@
 /*   By: ochichep <ochichep@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 20:35:22 by ochichep          #+#    #+#             */
-/*   Updated: 2022/01/25 20:35:26 by ochichep         ###   ########.fr       */
+/*   Updated: 2022/01/27 09:01:11 by ochichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 class Animal
 {
 	protected:
-
 		std::string _type;
 
 	public:
