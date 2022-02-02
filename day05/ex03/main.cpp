@@ -2,6 +2,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int main()
 {
@@ -28,11 +29,31 @@ int main()
         // delete test2;
         
 //-----------------------------------------------------------
-        Form *test3 = new PresidentialPardonForm("test3");
-        std::cout << *test3 << std::endl;
-        Bureaucrat two("Albert", 1);
-        two.signForm(*test3);
-        test3->execute(two);
+        // Form *test3 = new PresidentialPardonForm("test3");
+        // std::cout << *test3 << std::endl;
+        // Bureaucrat two("Albert", 1);
+        // two.signForm(*test3);
+        // test3->execute(two);
 
-        delete test3;
+        // delete test3;
+
+//-----------------------------------------------------------
+try{
+        Intern someRandomIntern;
+        Form* rrf;
+        rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+        Bureaucrat two("Albert", 1);
+        two.signForm(*rrf);
+        rrf->execute(two);
+        delete rrf;
+}
+catch (const std::exception & e)
+{
+        std::cout << "Intern can't do his job because " << e.what() << std::endl;
+}
+
+
+        
+
+
 }

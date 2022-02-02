@@ -1,7 +1,7 @@
 NAME = bureaucrat
 
 SRC =   Bureaucrat.cpp Form.cpp  main.cpp \
-		ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+		ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
 
 %.o: %.cpp
 		@$(CC) -c $(FLAGS) -o $@ $<

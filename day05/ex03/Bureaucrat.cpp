@@ -90,7 +90,6 @@ void Bureaucrat::executeForm(Form const & form)
             throw StatusException();
         if (this->getNote() > form.getExecGrade())
             throw SignException();
-		// form.execute(*this);
 		std::cout << this->getName() << " executes " << form.getName() << std::endl;
 	}
 	catch(const std::exception & e)
