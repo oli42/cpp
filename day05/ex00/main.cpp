@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ochichep <ochichep@student.42nice.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/02 21:32:29 by ochichep          #+#    #+#             */
+/*   Updated: 2022/02/02 21:45:52 by ochichep         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Bureaucrat.hpp"
 #include <iostream>
 
@@ -11,13 +23,9 @@ int main()
                 // one.increment();
 
         }
-        catch (Bureaucrat::GradeTooHighException & one)
+        catch (const std::exception & e)
         {
-                std::cout << "The note is too hight!" << std::endl; 
-        }
-        catch (Bureaucrat::GradeTooLowException & one)
-        {
-                std::cout << "The note is too low!" << std::endl; 
+                std::cout << e.what() << std::endl;
         }
         
 //-----------------------------------------------------------

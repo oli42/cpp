@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ochichep <ochichep@student.42nice.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/02 21:20:14 by ochichep          #+#    #+#             */
+/*   Updated: 2022/02/02 22:12:51 by ochichep         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
@@ -6,6 +18,8 @@
 
 int main()
 {
+        try
+        {
         // Form * test = new ShrubberyCreationForm("test");
         // std::cout << *test << std::endl;
         // Bureaucrat two("Albert", 10);
@@ -38,19 +52,18 @@ int main()
         // delete test3;
 
 //-----------------------------------------------------------
-try{
         Intern someRandomIntern;
         Form* rrf;
-        rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+        rrf = someRandomIntern.makeForm("robotomy equest", "Bender");
         Bureaucrat two("Albert", 1);
         two.signForm(*rrf);
         rrf->execute(two);
         delete rrf;
-}
-catch (const std::exception & e)
-{
-        std::cout << "Intern can't do his job because " << e.what() << std::endl;
-}
+        }
+        catch (const std::exception & e)
+        {
+                std::cout << e.what() << std::endl;
+        }
 
 
         

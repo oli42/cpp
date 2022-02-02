@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ochichep <ochichep@student.42nice.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/02 21:31:14 by ochichep          #+#    #+#             */
+/*   Updated: 2022/02/02 21:41:56 by ochichep         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat()
@@ -31,14 +43,11 @@ Bureaucrat & Bureaucrat::operator=(const Bureaucrat & one)
 void Bureaucrat::increment()
 {
     this->setNote(this->_note -= 1);
-    // std::cout << this->getNote();
 }
 
 void Bureaucrat::decrement()
 {
     this->setNote(_note += 1);
-    // std::cout << this->getNote();
-    
 }
 
 //------------------------------------------------------------------------------
@@ -68,4 +77,13 @@ std::ostream & operator<<(std::ostream & os, const Bureaucrat & one)
     return (os);
 }
 
+const char* Bureaucrat::GradeTooHighException::what() const throw()
+{
+    return ("The note is too hight!");
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw()
+{
+    return ("The note is too low!");
+}
 
