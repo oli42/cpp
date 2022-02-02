@@ -6,7 +6,7 @@
 /*   By: ochichep <ochichep@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 20:36:27 by ochichep          #+#    #+#             */
-/*   Updated: 2022/01/27 09:22:43 by ochichep         ###   ########.fr       */
+/*   Updated: 2022/01/29 16:24:32 by ochichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int main()
 
     //--------------Ex01--------------------------------------------------------
 
-    AAnimal* tab[50];
+    AAnimal* tab[30];
 
     for(int i = 0; i < 15; i++)
         tab[i] = new Cat();
@@ -56,6 +56,5 @@ int main()
     for(int i = 0; i < 30; i++)
         delete tab[i];
     
-    // tab[0] = new AAnimal();
     return (0);
 }

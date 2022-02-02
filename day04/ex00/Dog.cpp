@@ -6,7 +6,7 @@
 /*   By: ochichep <ochichep@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 20:36:02 by ochichep          #+#    #+#             */
-/*   Updated: 2022/01/26 21:04:43 by ochichep         ###   ########.fr       */
+/*   Updated: 2022/01/29 16:17:48 by ochichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,23 @@
 Dog::Dog()
 {
     this->setType("Dog");
-    std::cout << "Dog Default constructor called for " << this->getType() << std::endl;
+    std::cout << " Dog Default constructor called for " << this->getType() << std::endl;
 }
 
 Dog::Dog(std::string const & type) : _type(type)
 {
-    std::cout << "Dog Parametrized constructor called for " << this->getType() << std::endl;
+    std::cout << " Dog Parametrized constructor called for " << this->getType() << std::endl;
 }
 
 Dog::Dog(const Dog & one) : Animal ("Dog")
 {
     this->operator=(one);    
-    std::cout << "Dog Copy constructor called for " << this->getType() << std::endl;
+    std::cout << " Dog Copy constructor called for " << this->getType() << std::endl;
 }
 
 Dog::~Dog()
 {
-    std::cout << "Dog Destructor called for " << this->getType() << std::endl;
+    std::cout << " Dog Destructor called for " << this->getType() << std::endl;
 }
 
 //-------------------------------------------------------------------------------

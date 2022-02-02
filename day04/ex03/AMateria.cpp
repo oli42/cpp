@@ -6,7 +6,7 @@
 /*   By: ochichep <ochichep@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 21:05:33 by ochichep          #+#    #+#             */
-/*   Updated: 2022/01/28 21:05:34 by ochichep         ###   ########.fr       */
+/*   Updated: 2022/01/29 16:10:30 by ochichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,22 @@
 
 AMateria::AMateria()
 {
-    // std::cout << " AMateria Default constructor called" << std::endl;
     return ;
 }
 
 AMateria::AMateria(std::string const & type) : _type (type)
 {
-    // std::cout << "AMateria Parametrized constructor called" << std::endl;
     return ;
 }
 
 AMateria::AMateria(const AMateria & one)
 {
     this->operator=(one);
-    // std::cout << "AMateria Copy constructor called" << std::endl;
     return ;
 }
 
 AMateria::~AMateria()
 {
-    // std::cout << "AMateria Destructor called" << std::endl;
     return ;
 }
 

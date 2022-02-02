@@ -6,7 +6,7 @@
 /*   By: ochichep <ochichep@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 20:37:15 by ochichep          #+#    #+#             */
-/*   Updated: 2022/01/25 20:37:18 by ochichep         ###   ########.fr       */
+/*   Updated: 2022/01/29 16:18:37 by ochichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,23 @@
 WrongCat::WrongCat()
 {
     this->setType("WrongCat");
-    std::cout << "WrongCat Default constructor called for " << this->getType() << std::endl;
+    std::cout << " WrongCat Default constructor called for " << this->getType() << std::endl;
 }
 
 WrongCat::WrongCat(std::string const & type) : _type (type)
 {
-    std::cout << "WrongCat Parametrized constructor called for " << this->getType() << std::endl;
+    std::cout << " WrongCat Parametrized constructor called for " << this->getType() << std::endl;
 }
 
 WrongCat::WrongCat(const WrongCat & one) : WrongAnimal ("WrongCat")
 {
     this->operator=(one);    
-    std::cout << "WrongCat Copy constructor called for " << this->getType() << std::endl;
+    std::cout << " WrongCat Copy constructor called for " << this->getType() << std::endl;
 }
 
 WrongCat::~WrongCat()
 {
-    std::cout << "WrongCat Destructor called for " << this->getType() << std::endl;
+    std::cout << " WrongCat Destructor called for " << this->getType() << std::endl;
 }
 
 //------------------------------------------------------------------------------

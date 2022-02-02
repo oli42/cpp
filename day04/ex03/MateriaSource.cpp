@@ -6,7 +6,7 @@
 /*   By: ochichep <ochichep@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 21:07:43 by ochichep          #+#    #+#             */
-/*   Updated: 2022/01/28 21:07:44 by ochichep         ###   ########.fr       */
+/*   Updated: 2022/01/29 16:14:33 by ochichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,17 @@ MateriaSource::MateriaSource()
     {
         this->_inventory[i] = NULL;
     }
-	// std::cout << "MateriaSource default constructor called" << std::endl;
     return ;
 }
 
 MateriaSource::MateriaSource(MateriaSource const & one)
 {
     this->operator=(one);
-	// std::cout << "MateriaSource Copy constructor called" << std::endl;
     return ;
 }
 
 MateriaSource::~MateriaSource() 
 {
-	// std::cout << "  MateriaSource Destructor called" << std::endl;
-
 	for (int i = 0; i < 4; i++)
 		delete this->_inventory[i];
     return ;
@@ -44,10 +40,16 @@ MateriaSource::~MateriaSource()
 MateriaSource & MateriaSource::operator=(MateriaSource const & one)
 { 
     for (int i = 0; i < 4; i++)
-		delete this->_inventory[i];
+    {
+        if (this->_inventory[i])
+		    delete this->_inventory[i];
+    }
 
 	for (int i = 0; i < 4; i++)
-			this->_inventory[i] = one._inventory[i]->clone();
+    {
+        if (one._inventory[i])
+            this->_inventory[i] = one._inventory[i]->clone();
+    }
 
 	return (*this);
 }
@@ -62,7 +64,6 @@ void MateriaSource::learnMateria(AMateria *m)
                 this->_inventory[i] = m;
                 break;
             }
-        
     }
     return ;
 }

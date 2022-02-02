@@ -6,7 +6,7 @@
 /*   By: ochichep <ochichep@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 21:05:53 by ochichep          #+#    #+#             */
-/*   Updated: 2022/01/28 21:05:54 by ochichep         ###   ########.fr       */
+/*   Updated: 2022/01/29 16:10:58 by ochichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,33 +18,28 @@ Character::Character()
     {
         this->_inventory[i] = NULL;
     }
-    this->_name = "------";
-	// std::cout << "Character default constructor called" << std::endl;
+    this->_name = "-";
     return ;
 }
 
-Character::Character(std::string const & name) : _name (name)
+Character::Character(std::string const & name)
 {
     for(int i = 0; i < 4; i++)
     {
         this->_inventory[i] = NULL;
     }
     this->_name = name;
-	// std::cout << "Character Parametrized constructor called" << std::endl;
     return ;
 }
 
 Character::Character(Character const & one)
 {
     this->operator=(one);
-	// std::cout << "Character Copy constructor called" << std::endl;
     return ;
 }
 
 Character::~Character() 
 {
-	// std::cout << "Character Destructor called" << std::endl;
-
 	for (int i = 0; i < 4; i++)
 		delete _inventory[i];
     return ;
@@ -57,10 +52,16 @@ Character & Character::operator=(Character const & one)
 	this->_name = one._name;
 
 	for (int i = 0; i < 4; i++)
-		delete this->_inventory[i];
+    {
+        if (this->_inventory[i])
+		    delete this->_inventory[i];
+    }
 
 	for (int i = 0; i < 4; i++)
+    {
+        if (one._inventory[i])
 			this->_inventory[i] = one._inventory[i]->clone();
+    }
 
 	return (*this);
 }

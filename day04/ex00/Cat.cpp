@@ -6,7 +6,7 @@
 /*   By: ochichep <ochichep@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 20:35:38 by ochichep          #+#    #+#             */
-/*   Updated: 2022/01/25 20:35:42 by ochichep         ###   ########.fr       */
+/*   Updated: 2022/01/29 16:17:29 by ochichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,23 @@
 Cat::Cat()
 {
     this->setType("Cat");
-    std::cout << "Cat Default constructor called for " << this->getType() << std::endl;
+    std::cout << " Cat Default constructor called for " << this->getType() << std::endl;
 }
 
 Cat::Cat(std::string const & type) : _type (type)
 {
-    std::cout << "Cat Parametrized constructor called for " << this->getType() << std::endl;
+    std::cout << " Cat Parametrized constructor called for " << this->getType() << std::endl;
 }
 
 Cat::Cat(const Cat & one) : Animal ("Cat")
 {
     this->operator=(one);    
-    std::cout << "Cat Copy constructor called for " << this->getType() << std::endl;
+    std::cout << " Cat Copy constructor called for " << this->getType() << std::endl;
 }
 
 Cat::~Cat()
 {
-    std::cout << "Cat Destructor called for " << this->getType() << std::endl;
+    std::cout << " Cat Destructor called for " << this->getType() << std::endl;
 }
 
 //------------------------------------------------------------------------------
