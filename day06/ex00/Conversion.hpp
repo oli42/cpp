@@ -5,6 +5,7 @@
 #include <iostream>
 #include<sstream> 
 #include <iomanip>
+#include <climits>
 
 #define CHAR 1
 #define DOUBLE 2
@@ -21,6 +22,7 @@ class Conversion
         float _f;
         double _d;
         char _c;
+        long _test;
 
     public:
         Conversion();
@@ -44,20 +46,19 @@ class Conversion
         float getFloat() const;
         char getChar() const;
         double getDouble() const;
-        int getSet() const;
-
-        // class WrongArg : public std::exception
-        // {
-        //     public:
-        //         const char * what() const throw();
-        // };
+        long getSet() const;
         
         class Impossible : public std::exception
         {
             public:
                 const char * what() const throw();
         };
-        
+
+        class NanCases : public std::exception
+        {
+            public:
+                const char * what() const throw();
+        };
 };
 
 #endif

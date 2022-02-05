@@ -33,15 +33,13 @@
     {
         std::stringstream strs;
         strs << arg;
-        strs >> this->_i;
-        if ((this->_i >= 0 && this->_i <= 31) || this->_i == 127)
+        strs >> this->_test;
+        if ((this->_test >= 0 && this->_test <= 31) || this->_test == 127)
             this->_set = 1;
-        if (this->_i > 127)
+        if (this->_test > 127 || this->_test < 0)
             this->_set = 2;
-
-
-
-        
+        if (this->_test > INT_MAX || this->_test < INT_MIN)
+            this->_set = 3;
     }
 
     int Conversion::identify_literale(const std::string arg)
@@ -51,13 +49,15 @@
         int f = 0;
         if (arg.length() == 1 && (!isdigit(static_cast<int>(arg[0]))))
             return (CHAR);
+        if ((arg.compare("nan") == 0) || (arg.compare("nanf") == 0))
+            throw NanCases();
         for (size_t i = 0; i < arg.length(); i++)
         {
             if (arg[i] == '.')
                 d += 1;
             else if (arg[i] == 'f')
                 f += 1;
-            else if (!isdigit(arg[i]))
+            else if (!isdigit(arg[i]) && arg[i] != '-' && arg[i] != '+')
                 c += 1;
         }
         if (d == 1 && f == 0 && c == 0)
@@ -107,9 +107,9 @@
         this->_f = static_cast<float>(this->_c);
         this->_i = static_cast<int>(this->_c);
         std::cout.precision(1);
-        if (this->getSet() == 1)
+        if (this->getSet() == 1 )
             std::cout << "char: Non displayable" << std::endl;
-        else if (this->getSet() == 2)
+        else if (this->getSet() == 2 || this->getSet() == 3)
             std::cout << "char: Impossible" << std::endl;
         else
             std::cout << "char: '" << this->_c << "'" << std::endl;
@@ -120,13 +120,13 @@
 
     void Conversion::print_literale_d()
     {
-        this->_c = static_cast<double>(this->_d);
+        this->_c = static_cast<int>(this->_d);
         this->_f = static_cast<float>(this->_d);
         this->_i = static_cast<int>(this->_d);
         std::cout.precision(1);
-        if (this->getSet() == 1)
+        if (this->getSet() == 1 )
             std::cout << "char: Non displayable" << std::endl;
-         else if (this->getSet() == 2)
+         else if (this->getSet() == 2 || this->getSet() == 3)
             std::cout << "char: Impossible" << std::endl;
         else
             std::cout << "char: '" << std::fixed << this->_c << "'" << std::endl;
@@ -137,13 +137,13 @@
 
     void Conversion::print_literale_f()
     {
-        this->_c = static_cast<double>(this->_f);
-        this->_d = static_cast<float>(this->_f);
+        this->_c = static_cast<int>(this->_f);
+        this->_d = static_cast<double>(this->_f);
         this->_i = static_cast<int>(this->_f);
-        std::cout.precision(2);
-        if (this->getSet() == 1)
+        std::cout.precision(1);
+        if (this->getSet() == 1 )
             std::cout << "char: Non displayable" << std::endl;
-        else if (this->getSet() == 2)
+        else if (this->getSet() == 2 || this->getSet() == 3)
             std::cout << "char: Impossible" << std::endl;
         else
             std::cout << "char: '" << std::fixed << this->_c << "'" << std::endl;
@@ -154,17 +154,23 @@
 
     void Conversion::print_literale_i()
     {
-        this->_c = static_cast<double>(this->_i);
-        this->_d = static_cast<float>(this->_i);
-        this->_f = static_cast<int>(this->_i);
+        if (this->getSet() == 3)
+            this->_d = static_cast<double>(this->_test);
+        else
+            this->_d = static_cast<double>(this->_i);
+        this->_f = static_cast<float>(this->_i);
+        this->_c = static_cast<int>(this->_i);
         std::cout.precision(0);
-        if (this->getSet() == 1)
+        if (this->getSet() == 1 )
             std::cout << "char: Non displayable" << std::endl;
-        else if (this->getSet() == 2)
+        else if (this->getSet() == 2 || this->getSet() == 3)
             std::cout << "char: impossible" << std::endl;
         else
             std::cout << "char: '" << std::fixed << this->_c << "'" << std::endl;
-        std::cout << "int: " << std::fixed  << this->_i  << std::endl;
+        if (this->getSet() == 3)
+            std::cout << "int: impossible" << std::endl;
+        else
+            std::cout << "int: " << std::fixed  << this->_i  << std::endl;
         std::cout << "float: " << std::fixed << this->_f  << ".0f" << std::endl;
         std::cout << "double: " << std::fixed << this->_d  << ".0" << std::endl;
     }
@@ -192,19 +198,19 @@
         return (this->_d);
     }
 
-    int Conversion::getSet() const
+    long Conversion::getSet() const
     {
         return (this->_set);
     }
 
 //------------------------------------------------------------------------------
 
-    // const char * Conversion::WrongArg::what() const throw()
-    // {
-    //     return ("Wrong argument!");
-    // }
-
     const char * Conversion::Impossible::what() const throw()
     {
         return ("char: impossible\nint: impossible\nfloat: impossible\ndouble: impossible");
+    }
+
+    const char * Conversion::NanCases::what() const throw()
+    {
+        return ("char: impossible\nint: impossible\nfloat: nanf\ndouble: nan");
     }

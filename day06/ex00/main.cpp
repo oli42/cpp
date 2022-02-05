@@ -1,6 +1,3 @@
-#include <iostream>
-#include <string>
-#include <limits>
 #include "Conversion.hpp"
 
 int main (int argc, char **argv)
@@ -20,6 +17,6 @@ int main (int argc, char **argv)
             std::cout << e.what() << std::endl;
         }  
     }
-        else if (argc == 1 ?  std::cout << "No argument" << std::endl : std::cout << "Too many arguments" << std::endl)
+    else if (argc == 1 ?  std::cout << "No argument" << std::endl : std::cout << "Too many arguments" << std::endl)
   return 0;
 }
