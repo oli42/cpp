@@ -6,7 +6,7 @@
 /*   By: ochichep <ochichep@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 11:30:16 by ochichep          #+#    #+#             */
-/*   Updated: 2022/02/06 11:36:44 by ochichep         ###   ########.fr       */
+/*   Updated: 2022/02/06 12:32:30 by ochichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,18 @@ class Conversion
         };
 
         class NanCases : public std::exception
+        {
+            public:
+                const char * what() const throw();
+        };
+
+        class InfPlusCases : public std::exception
+        {
+            public:
+                const char * what() const throw();
+        };
+
+        class InfMinusCases : public std::exception
         {
             public:
                 const char * what() const throw();

@@ -6,7 +6,7 @@
 /*   By: ochichep <ochichep@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 11:30:07 by ochichep          #+#    #+#             */
-/*   Updated: 2022/02/06 12:01:20 by ochichep         ###   ########.fr       */
+/*   Updated: 2022/02/06 12:34:46 by ochichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,10 @@
             return (CHAR);
         if ((arg.compare("nan") == 0) || (arg.compare("nanf") == 0))
             throw NanCases();
+        if ((arg.compare("+inf") == 0) || (arg.compare("+inff") == 0) || (arg.compare("inf") == 0) || (arg.compare("inff") == 0))
+            throw InfPlusCases();
+        if ((arg.compare("-inf") == 0) || (arg.compare("-inff") == 0))
+            throw InfMinusCases();
         for (size_t i = 0; i < arg.length(); i++)
         {
             if (arg[i] == '.')
@@ -256,4 +260,14 @@
     const char * Conversion::NanCases::what() const throw()
     {
         return ("char: impossible\nint: impossible\nfloat: nanf\ndouble: nan");
+    }
+    
+    const char * Conversion::InfPlusCases::what() const throw()
+    {
+        return ("char: impossible\nint: impossible\nfloat: inff\ndouble: inf");
+    }
+    
+    const char * Conversion::InfMinusCases::what() const throw()
+    {
+        return ("char: impossible\nint: impossible\nfloat: -inff\ndouble: -inf");
     }
