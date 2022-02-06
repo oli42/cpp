@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ochichep <ochichep@student.42nice.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/06 11:30:30 by ochichep          #+#    #+#             */
+/*   Updated: 2022/02/06 11:40:18 by ochichep         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Conversion.hpp"
 
 int main (int argc, char **argv)
@@ -6,11 +18,8 @@ int main (int argc, char **argv)
     {
         try
         {
-            int i = 0;
             Conversion one(static_cast<const std::string>(argv[1]));
-            one.check_literale(static_cast<const std::string>(argv[1]));
-            i = one.identify_literale(static_cast<const std::string>(argv[1]));
-            one.convert_literale(static_cast<const std::string>(argv[1]), i);
+            one.convert_literale(static_cast<const std::string>(argv[1]));
         }
         catch (const std::exception & e)
         {

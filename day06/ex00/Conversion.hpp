@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Conversion.hpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ochichep <ochichep@student.42nice.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/06 11:30:16 by ochichep          #+#    #+#             */
+/*   Updated: 2022/02/06 11:36:44 by ochichep         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CONVERSION_HPP
 # define CONVERSION_HPP
 #include <string>
@@ -33,7 +45,7 @@ class Conversion
         Conversion & operator=(Conversion const & one);
         void check_literale(const std::string arg);
         int identify_literale(const std::string arg);
-        void convert_literale(const std::string arg, int i);
+        void convert_literale(const std::string arg);
         void print_literale_c();
         void print_literale_d();
         void print_literale_f();

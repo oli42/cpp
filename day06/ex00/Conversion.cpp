@@ -1,8 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Conversion.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ochichep <ochichep@student.42nice.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/06 11:30:07 by ochichep          #+#    #+#             */
+/*   Updated: 2022/02/06 12:01:20 by ochichep         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Conversion.hpp"
 
     Conversion::Conversion()
     {
-
     }
 
     Conversion::Conversion(std::string arg) :_arg (arg), _set (0)
@@ -17,7 +28,6 @@
 
     Conversion::~Conversion()
     {
-
     }
 
     Conversion & Conversion::operator=(const Conversion & one)
@@ -65,34 +75,34 @@
         else if ((d == 1 || d == 0) && f == 1 && c == 0)
             return (FLOAT);
         else if (d == 0 && f == 0 && c == 0)
-        { 
-            check_literale(arg);
             return (INT);
-        }
         return (IMPOSSIBLE);
     }
 
 
-    void Conversion::convert_literale(const std::string arg, int i)
+    void Conversion::convert_literale(const std::string arg)
     {
         std::stringstream strs;
         strs << arg;
-        if ( i == 1)
+        check_literale(arg);
+        int i = identify_literale(arg);
+        
+        if (i == 1)
         {
             strs >> this->_c;
             print_literale_c();
         }
-        else if ( i == 2)
+        else if (i == 2)
         {
             strs >> this->_d;
             print_literale_d();
         }
-        else if ( i == 3)
+        else if (i == 3)
         {
             strs >> this->_f;
             print_literale_f();
         }
-         else if ( i == 4)
+         else if (i == 4)
         {
             strs >> this->_i;
             print_literale_i();
@@ -103,76 +113,109 @@
 
     void Conversion::print_literale_c()
     {
-        this->_d = static_cast<double>(this->_c);
-        this->_f = static_cast<float>(this->_c);
-        this->_i = static_cast<int>(this->_c);
-        std::cout.precision(1);
-        if (this->getSet() == 1 )
-            std::cout << "char: Non displayable" << std::endl;
-        else if (this->getSet() == 2 || this->getSet() == 3)
-            std::cout << "char: Impossible" << std::endl;
-        else
-            std::cout << "char: '" << this->_c << "'" << std::endl;
-        std::cout << "int: " << this->_i  << std::endl;
-        std::cout << "float: " << this->_f  << ".0f" << std::endl;
-        std::cout << "double: " << this->_d  << ".0" << std::endl;
+        try
+        {
+            this->_d = static_cast<double>(this->_c);
+            this->_f = static_cast<float>(this->_c);
+            this->_i = static_cast<int>(this->_c);
+            std::cout.precision(1);
+            if (this->getSet() == 1 )
+                std::cout << "char: Non displayable" << std::endl;
+            else if (this->getSet() == 2 || this->getSet() == 3)
+                std::cout << "char: impossible" << std::endl;
+            else
+                std::cout << "char: '" << this->_c << "'" << std::endl;
+            std::cout << "int: " << this->_i  << std::endl;
+            std::cout << "float: " << this->_f  << ".0f" << std::endl;
+            std::cout << "double: " << this->_d  << ".0" << std::endl;
+        }
+        catch (const std::exception & e)
+        {
+        }
     }
 
     void Conversion::print_literale_d()
     {
-        this->_c = static_cast<int>(this->_d);
-        this->_f = static_cast<float>(this->_d);
-        this->_i = static_cast<int>(this->_d);
-        std::cout.precision(1);
-        if (this->getSet() == 1 )
-            std::cout << "char: Non displayable" << std::endl;
-         else if (this->getSet() == 2 || this->getSet() == 3)
-            std::cout << "char: Impossible" << std::endl;
-        else
-            std::cout << "char: '" << std::fixed << this->_c << "'" << std::endl;
-        std::cout << "int: " << std::fixed << this->_i  << std::endl;
-        std::cout << "float: " << std::fixed << this->_f  << "f" << std::endl;
-        std::cout << "double: " << std::fixed << this->_d  << std::endl;
+        try
+        {
+            this->_c = static_cast<int>(this->_d);
+            this->_f = static_cast<float>(this->_d);
+            this->_i = static_cast<int>(this->_d);
+            std::cout.precision(1);
+            if (this->getSet() == 1 )
+                std::cout << "char: Non displayable" << std::endl;
+            else if (this->getSet() == 2 || this->getSet() == 3)
+                std::cout << "char: impossible" << std::endl;
+            else
+                std::cout << "char: '" << std::fixed << this->_c << "'" << std::endl;
+            if (this->getSet() == 3)
+                std::cout << "int: impossible" << std::endl;
+            else
+                std::cout << "int: " << std::fixed << this->_i  << std::endl;
+            std::cout << "float: " << std::fixed << this->_f  << "f" << std::endl;
+            std::cout << "double: " << std::fixed << this->_d  << std::endl;
+        }
+        catch (const std::exception & e)
+        {
+        }
     }
 
     void Conversion::print_literale_f()
     {
-        this->_c = static_cast<int>(this->_f);
-        this->_d = static_cast<double>(this->_f);
-        this->_i = static_cast<int>(this->_f);
-        std::cout.precision(1);
-        if (this->getSet() == 1 )
-            std::cout << "char: Non displayable" << std::endl;
-        else if (this->getSet() == 2 || this->getSet() == 3)
-            std::cout << "char: Impossible" << std::endl;
-        else
-            std::cout << "char: '" << std::fixed << this->_c << "'" << std::endl;
-        std::cout << "int: " << std::fixed  << this->_i  << std::endl;
-        std::cout << "float: " << std::fixed << this->_f  << "f" << std::endl;
-        std::cout << "double: " << std::fixed << this->_d  << std::endl;
+        try
+        {
+            this->_c = static_cast<int>(this->_f);
+            this->_d = static_cast<double>(this->_f);
+            this->_i = static_cast<int>(this->_f);
+            std::cout.precision(1);
+            if (this->getSet() == 1 )
+                std::cout << "char: Non displayable" << std::endl;
+            else if (this->getSet() == 2 || this->getSet() == 3)
+                std::cout << "char: impossible" << std::endl;
+            else
+                std::cout << "char: '" << std::fixed << this->_c << "'" << std::endl;
+            if (this->getSet() == 3)
+                std::cout << "int: impossible" << std::endl;
+            else
+                std::cout << "int: " << std::fixed  << this->_i  << std::endl;
+            std::cout << "float: " << std::fixed << this->_f  << "f" << std::endl;
+            std::cout << "double: " << std::fixed << this->_d  << std::endl;
+        }
+        catch (const std::exception & e)
+        {
+        }
     }
 
     void Conversion::print_literale_i()
     {
-        if (this->getSet() == 3)
-            this->_d = static_cast<double>(this->_test);
-        else
-            this->_d = static_cast<double>(this->_i);
-        this->_f = static_cast<float>(this->_i);
-        this->_c = static_cast<int>(this->_i);
-        std::cout.precision(0);
-        if (this->getSet() == 1 )
-            std::cout << "char: Non displayable" << std::endl;
-        else if (this->getSet() == 2 || this->getSet() == 3)
-            std::cout << "char: impossible" << std::endl;
-        else
-            std::cout << "char: '" << std::fixed << this->_c << "'" << std::endl;
-        if (this->getSet() == 3)
-            std::cout << "int: impossible" << std::endl;
-        else
-            std::cout << "int: " << std::fixed  << this->_i  << std::endl;
-        std::cout << "float: " << std::fixed << this->_f  << ".0f" << std::endl;
-        std::cout << "double: " << std::fixed << this->_d  << ".0" << std::endl;
+        try
+        {
+            if (this->getSet() == 3)
+                this->_d = static_cast<double>(this->_test);
+            else
+                this->_d = static_cast<double>(this->_i);
+            if (this->getSet() == 3)
+                this->_f = static_cast<float>(this->_test);
+            else
+                this->_f = static_cast<float>(this->_i);
+            this->_c = static_cast<int>(this->_i);
+            std::cout.precision(0);
+            if (this->getSet() == 1 )
+                std::cout << "char: Non displayable" << std::endl;
+            else if (this->getSet() == 2 || this->getSet() == 3)
+                std::cout << "char: impossible" << std::endl;
+            else
+                std::cout << "char: '" << std::fixed << this->_c << "'" << std::endl;
+            if (this->getSet() == 3)
+                std::cout << "int: impossible" << std::endl;
+            else
+                std::cout << "int: " << std::fixed  << this->_i  << std::endl;
+            std::cout << "float: " << std::fixed << this->_f  << ".0f" << std::endl;
+            std::cout << "double: " << std::fixed << this->_d  << ".0" << std::endl;
+        }
+        catch (const std::exception & e)
+        {
+        }
     }
 
     //--------------------------------------------------------------------------
