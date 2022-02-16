@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Array.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ochichep <ochichep@student.42nice.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/12 09:03:31 by ochichep          #+#    #+#             */
+/*   Updated: 2022/02/13 12:30:46 by ochichep         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef ARRAY_HPP
 # define ARRAY_HPP
 #include <iostream>
@@ -7,13 +19,13 @@ template<typename T>
 class Array 
 {
     private:
-        T * _tab;
         unsigned int _n;
+        T * _tab;
 
     public:
-        Array() : _tab(NULL), _n(0) {}
+        Array() : _n(0), _tab(NULL) {}
 
-        Array(unsigned int n) : _tab(new T[n]()), _n (n) {}
+        Array(unsigned int n) : _n (n), _tab(new T[n]()) {}
 
         Array(Array const & one)
         {
@@ -42,6 +54,14 @@ class Array
 		}
 
         T &	operator[](unsigned int i)
+        {
+			if (i < 0 || i >= _n)
+				throw Array::noIndexException();
+			
+			return this->_tab[i];
+		}
+
+        const  T &	operator[](unsigned int i) const
         {
 			if (i < 0 || i >= _n)
 				throw Array::noIndexException();

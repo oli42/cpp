@@ -6,7 +6,7 @@
 /*   By: ochichep <ochichep@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 11:13:25 by ochichep          #+#    #+#             */
-/*   Updated: 2022/02/06 11:13:26 by ochichep         ###   ########.fr       */
+/*   Updated: 2022/02/15 17:08:23 by ochichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,24 +54,29 @@ void identify(Base & p)
 {
     try
     {
-        dynamic_cast<A&>(p);
+        Base & one = dynamic_cast<A&>(p);
 		std::cout << "A &" << std::endl;
+        static_cast<void>(one);
     }
     catch (std::exception & e)
     {
     }
 	try 
     {
-        dynamic_cast<B&>(p);
+        Base & two = dynamic_cast<B&>(p);
 		std::cout << "B &" << std::endl;
+        static_cast<void>(two);
+
     }
     catch (std::exception & e)
     {
     }
     try
     {
-        dynamic_cast<C&>(p);
+        Base & three = dynamic_cast<C&>(p);
 		std::cout << "C &" << std::endl;
+        static_cast<void>(three);
+        
     }
     catch (std::exception & e)
     {
@@ -89,8 +94,6 @@ int main()
     identify(test);
     identify(*test);
     delete test;
-
-    exit(88);
 
     return (0);
 }
