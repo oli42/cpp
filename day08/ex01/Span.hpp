@@ -6,7 +6,7 @@
 /*   By: ochichep <ochichep@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 10:00:47 by ochichep          #+#    #+#             */
-/*   Updated: 2022/02/17 10:00:48 by ochichep         ###   ########.fr       */
+/*   Updated: 2022/02/21 14:34:31 by ochichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ class Span
         Span & operator=(Span const & one);
 
         void addNumber(int number);
+        void addRange(int first, int last);
         unsigned int shortestSpan();
         unsigned int longestSpan();
 

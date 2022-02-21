@@ -6,7 +6,7 @@
 /*   By: ochichep <ochichep@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 19:44:36 by ochichep          #+#    #+#             */
-/*   Updated: 2022/02/17 19:44:37 by ochichep         ###   ########.fr       */
+/*   Updated: 2022/02/17 22:49:26 by ochichep         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class MutantStack : public std::stack<T>
         MutantStack() : std::stack<T>()
         {
         }
-		MutantStack( MutantStack const & one) 
+		MutantStack(MutantStack const & one) 
         { 
             *this = one; 
         }
@@ -69,8 +69,5 @@ class MutantStack : public std::stack<T>
         { 
             return this->c.rend();
         }
-
-
-
 };
 #endif

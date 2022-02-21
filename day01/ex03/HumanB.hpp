@@ -5,19 +5,17 @@
 
 class HumanB
 {
+    private:
+            std::string _name;
+            Weapon const *  _weapon;
+
     public:
-            HumanB();
             HumanB(std::string name);
             ~HumanB();
 
             void attack();
-            std::string getName(void) const;
-            void setName(std::string name);
-            void setWeapon(Weapon &aweapon);
+            void setWeapon(Weapon const & aweapon);
 
-    private:
-            std::string _name;
-            Weapon*  _weapon;
 
 };
 #endif
